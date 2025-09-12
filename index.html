@@ -75,6 +75,35 @@
       background-color: darkred;
     }
 
+    /* Styling untuk video */
+    #videoContainer {
+      margin-top: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #videoPlayer {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+
+    #closeVideoBtn {
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 25px;
+      background-color: #ff4757;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #closeVideoBtn:hover {
+      background-color: #ff2e43;
+    }
+
   </style>
 </head>
 <body>
@@ -100,6 +129,16 @@
       <button onclick="kirimKeBot('INVIS')">INVIS</button>
     </div>
     <div id="status" style="font-size: 35px; margin-top: 40px;"></div>
+    
+    <!-- Container untuk video -->
+    <div id="videoContainer" class="hidden">
+      <video id="videoPlayer" controls>
+        <source src="https://files.catbox.moe/69x49n.mp4" type="video/mp4">
+        Browser Anda tidak mendukung pemutaran video.
+      </video>
+      <br>
+      <button id="closeVideoBtn" onclick="closeVideo()">Tutup Video</button>
+    </div>
   </div>
 
   <script>
@@ -120,6 +159,7 @@
       document.getElementById("mainContent").classList.add("hidden");
       document.getElementById("loginBox").style.display = "block";
       document.getElementById("logoutBtn").style.display = "none";
+      closeVideo(); // Tutup video jika sedang diputar
     }
 
     function kirimKeBot(mode) {
@@ -131,6 +171,10 @@
         return;
       }
 
+      // Tampilkan video
+      document.getElementById("videoContainer").classList.remove("hidden");
+      document.getElementById("videoPlayer").play();
+      
       // Contoh kirim data ke bot (ubah URL ke IP/server bot kamu)
       fetch("https://your-server.com/send", {
         method: "POST",
@@ -146,6 +190,15 @@
       .catch(err => {
         status.innerText = "❌ Gagal mengirim ke bot!";
       });
+    }
+
+    function closeVideo() {
+      const videoContainer = document.getElementById("videoContainer");
+      const videoPlayer = document.getElementById("videoPlayer");
+      
+      videoPlayer.pause();
+      videoPlayer.currentTime = 0;
+      videoContainer.classList.add("hidden");
     }
   </script>
 
