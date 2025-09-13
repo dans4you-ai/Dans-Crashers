@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENIGMA TOP UP - Top Up Game & Konfirmasi Otomatis</title>
+    <title>ENIGMA TOP UP - Top Up Game & Konfirmasi WhatsApp</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -16,6 +16,7 @@
             --dana: #00a3e0;
             --ovo: #4c2a85;
             --gopay: #00a64f;
+            --whatsapp: #25D366;
         }
         
         * {
@@ -316,6 +317,26 @@
             font-weight: 500;
         }
         
+        .whatsapp-confirm {
+            background-color: rgba(37, 211, 102, 0.1);
+            border: 2px solid var(--whatsapp);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .whatsapp-confirm i {
+            color: var(--whatsapp);
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .whatsapp-confirm h3 {
+            color: var(--whatsapp);
+            margin-bottom: 10px;
+        }
+        
         footer {
             background-color: var(--secondary);
             padding: 40px 0;
@@ -409,13 +430,13 @@
         
         .modal-icon {
             font-size: 60px;
-            color: var(--accent-light);
+            color: var(--whatsapp);
             margin-bottom: 20px;
         }
         
         .modal h2 {
             margin-bottom: 15px;
-            color: var(--accent-light);
+            color: var(--whatsapp);
         }
         
         .modal p {
@@ -490,7 +511,7 @@
     <section class="hero">
         <div class="container">
             <h1>Top Up Game Mudah & Cepat</h1>
-            <p>Lakukan pengisian kredit game favorit Anda dan dapatkan konfirmasi instan melalui Telegram hanya dalam hitungan detik.</p>
+            <p>Lakukan pengisian kredit game favorit Anda dan dapatkan konfirmasi instan melalui WhatsApp hanya dalam hitungan detik.</p>
             <a href="#topup-form" class="cta-button">Top Up Sekarang</a>
         </div>
     </section>
@@ -546,6 +567,12 @@
         <div class="container">
             <h2 class="section-title">Form Top Up Game</h2>
             <div class="topup-form">
+                <div class="whatsapp-confirm">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>Konfirmasi via WhatsApp</h3>
+                    <p>Pesanan Anda akan langsung dikonfirmasi melalui WhatsApp ke nomor 62881011892305</p>
+                </div>
+                
                 <div class="form-group">
                     <label for="game">Pilih Game</label>
                     <select id="game" required>
@@ -575,16 +602,17 @@
                 <div class="form-group">
                     <label for="player-id">Player ID</label>
                     <input type="text" id="player-id" placeholder="Masukkan ID Player Anda" required>
+                    <small style="color: var(--text-muted); margin-top: 5px; display: block;">Username akan terisi otomatis setelah ID dimasukkan</small>
                 </div>
                 
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" placeholder="Masukkan Username Game Anda" required>
+                    <label for="username">Username Game</label>
+                    <input type="text" id="username" placeholder="Username akan terisi otomatis" readonly>
                 </div>
                 
                 <div class="form-group">
-                    <label for="telegram">ID Telegram</label>
-                    <input type="text" id="telegram" placeholder="Contoh: @username atau nomor telepon" required>
+                    <label for="whatsapp">Nomor WhatsApp Anda</label>
+                    <input type="tel" id="whatsapp" placeholder="Contoh: 628123456789" required>
                 </div>
                 
                 <div class="form-group">
@@ -605,7 +633,7 @@
                     </div>
                 </div>
                 
-                <button type="submit" class="submit-btn" id="submit-btn">Lakukan Top Up Sekarang</button>
+                <button type="submit" class="submit-btn" id="submit-btn">Kirim Pesanan via WhatsApp</button>
             </div>
         </div>
     </section>
@@ -615,12 +643,12 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Enigma Top Up</h3>
-                    <p>Layanan top up game terpercaya dengan proses cepat dan konfirmasi instan melalui Telegram.</p>
+                    <p>Layanan top up game terpercaya dengan proses cepat dan konfirmasi instan melalui WhatsApp.</p>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="https://t.me/DansForyu" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/62881011892305" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
@@ -645,7 +673,7 @@
                 <div class="footer-section">
                     <h3>Kontak Kami</h3>
                     <p><i class="fas fa-envelope"></i> support@enigmatopup.com</p>
-                    <p><i class="fab fa-telegram"></i> @DansForyu</p>
+                    <p><i class="fab fa-whatsapp"></i> +62 881-0118-92305</p>
                     <p><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</p>
                 </div>
             </div>
@@ -659,16 +687,30 @@
     <div class="modal" id="success-modal">
         <div class="modal-content">
             <div class="modal-icon">
-                <i class="fas fa-check-circle"></i>
+                <i class="fab fa-whatsapp"></i>
             </div>
             <h2>Pesanan Berhasil Dikirim!</h2>
-            <p>Detail pesanan Anda telah dikirim ke bot Telegram kami. Silakan lanjutkan pembayaran sesuai instruksi yang diberikan.</p>
+            <p>Detail pesanan Anda telah dikirim via WhatsApp. Silakan lanjutkan pembayaran sesuai instruksi yang diberikan.</p>
             <button class="modal-close" id="modal-close">Tutup</button>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Database username berdasarkan ID game (simulasi)
+            const usernameDatabase = {
+                "123456": "PlayerOne",
+                "234567": "GamerPro",
+                "345678": "MLBBKing",
+                "456789": "ShooterExpert",
+                "567890": "PUBGMaster",
+                "678901": "GenshinLover",
+                "789012": "ValorantPro",
+                "890123": "LeagueLegend",
+                "901234": "FreeFireGod",
+                "112233": "TopPlayer"
+            };
+            
             // Toggle metode pembayaran
             const paymentMethods = document.querySelectorAll('.payment-method');
             paymentMethods.forEach(method => {
@@ -676,6 +718,25 @@
                     paymentMethods.forEach(m => m.classList.remove('selected'));
                     this.classList.add('selected');
                 });
+            });
+            
+            // Auto-fill username berdasarkan ID
+            const playerIdInput = document.getElementById('player-id');
+            const usernameInput = document.getElementById('username');
+            
+            playerIdInput.addEventListener('blur', function() {
+                const playerId = this.value.trim();
+                if (usernameDatabase[playerId]) {
+                    usernameInput.value = usernameDatabase[playerId];
+                } else if (playerId !== "") {
+                    // Jika ID tidak ditemukan, generate username random
+                    const randomNames = ["Shadow", "Dragon", "Warrior", "Knight", "Master", "Hero", "Legend", "Pro", "Elite", "King"];
+                    const randomNum = Math.floor(Math.random() * 1000);
+                    const randomName = randomNames[Math.floor(Math.random() * randomNames.length)];
+                    usernameInput.value = `${randomName}${randomNum}`;
+                } else {
+                    usernameInput.value = "";
+                }
             });
             
             // Handler untuk form submission
@@ -688,11 +749,11 @@
                 const nominal = document.getElementById('nominal').value;
                 const playerId = document.getElementById('player-id').value;
                 const username = document.getElementById('username').value;
-                const telegram = document.getElementById('telegram').value;
+                const whatsapp = document.getElementById('whatsapp').value;
                 const paymentMethod = document.querySelector('.payment-method.selected').querySelector('span').textContent;
                 
                 // Validasi sederhana
-                if (!game || !nominal || !playerId || !username || !telegram) {
+                if (!game || !nominal || !playerId || !username || !whatsapp) {
                     alert('Harap isi semua field yang wajib diisi!');
                     return;
                 }
@@ -701,55 +762,27 @@
                 const gameText = document.getElementById('game').options[document.getElementById('game').selectedIndex].text;
                 const nominalText = document.getElementById('nominal').options[document.getElementById('nominal').selectedIndex].text;
                 
-                // Format pesan untuk Telegram
+                // Format pesan untuk WhatsApp
                 const message = `🔮 *PESANAN TOP UP BARU* 🔮%0A%0A` +
                                `*Game:* ${gameText}%0A` +
                                `*Nominal:* ${nominalText}%0A` +
                                `*Player ID:* ${playerId}%0A` +
                                `*Username:* ${username}%0A` +
-                               `*Telegram:* ${telegram}%0A` +
+                               `*WhatsApp Pemesan:* ${whatsapp}%0A` +
                                `*Metode Pembayaran:* ${paymentMethod}%0A%0A` +
                                `_Pesanan ini dikirim melalui website Enigma Top Up_`;
                 
-                // Kirim pesan ke bot Telegram
-                const botToken = '8085941196:AAHbwSQY6AUUL2menTUWva1NxMGGBdC-8Uc';
-                const chatId = '8085941196'; // Ganti dengan chat ID tujuan
+                // Redirect ke WhatsApp
+                const whatsappNumber = '62881011892305';
+                window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
                 
-                // Menggunakan API Telegram Bot
-                fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        chat_id: chatId,
-                        text: decodeURIComponent(message),
-                        parse_mode: 'Markdown'
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        // Tampilkan modal sukses
-                        document.getElementById('success-modal').style.display = 'flex';
-                    } else {
-                        alert('Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Terjadi kesalahan. Silakan coba lagi.');
-                });
+                // Tampilkan modal sukses
+                document.getElementById('success-modal').style.display = 'flex';
             });
             
             // Tutup modal
             document.getElementById('modal-close').addEventListener('click', function() {
                 document.getElementById('success-modal').style.display = 'none';
-                
-                // Reset form
-                document.getElementById('topup-form').reset();
-                paymentMethods.forEach(m => m.classList.remove('selected'));
-                document.querySelector('.payment-method.dana').classList.add('selected');
             });
         });
     </script>
